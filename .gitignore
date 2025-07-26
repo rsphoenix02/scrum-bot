@@ -1,0 +1,6 @@
+.env
+scrumbot-venv/
+commands.*
+__pycache__/
+.vscode/
+*.pyc
