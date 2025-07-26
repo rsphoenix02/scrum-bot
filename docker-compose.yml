@@ -4,10 +4,12 @@ services:
   db:
     image: postgres:15
     container_name: scrum_pg
+    env_file:
+      - .env
     environment:
-      POSTGRES_DB: scrumdb
-      POSTGRES_USER: scrumuser
-      POSTGRES_PASSWORD: scrumpass
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
