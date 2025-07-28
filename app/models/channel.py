@@ -2,7 +2,7 @@ import uuid
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.dialects.postgresql import UUID
 from datetime import datetime
-from app.db import Base
+from app.db.base import Base
 
 class Channel(Base):
     __tablename__ = "channels"

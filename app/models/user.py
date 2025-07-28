@@ -2,9 +2,8 @@ import uuid
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.dialects.postgresql import UUID
 from datetime import datetime
-from app.db import Base  # We'll fix this in a moment
-
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import relationship
+from app.db.base import Base
 
 class User(Base):
     __tablename__ = "users"
@@ -13,3 +12,5 @@ class User(Base):
     slack_id = Column(String, unique=True, nullable=False)
     name = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+    standups = relationship("StandupEntry", back_populates="user", cascade="all, delete-orphan")
+
