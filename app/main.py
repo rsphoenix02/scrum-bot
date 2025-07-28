@@ -1,14 +1,12 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI
 from dotenv import load_dotenv
 import os
-from app.db.base import Base
-from app.db.engine import engine
-from app.models import user, standup
-from app.routes import slack_events
-from app.routes import standup
 
 load_dotenv()
+
+from app.api.v1 import user, slack_events, standup
+
+
 
 app = FastAPI()
 
@@ -16,3 +14,4 @@ app = FastAPI()
 
 app.include_router(slack_events.router)
 app.include_router(standup.router)
+app.include_router(user.router)

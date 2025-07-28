@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from app.db.base import Base
 from sqlalchemy.dialects.postgresql import UUID
-from app.models.user import User
+# from app.models.user import User
 
 class StandupEntry(Base):
     __tablename__ = "standup_entries"
